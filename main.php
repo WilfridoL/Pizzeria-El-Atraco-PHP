@@ -2,10 +2,12 @@
 $total = 0;
 $nombreCliente = $_POST['nombre_cliente'];
 $direccionCliente = $_POST['direccion_cliente'];
+$telefono = $_POST['telefono_cliente'];
+$pago = $_POST['pago'];
 date_default_timezone_set('America/Bogota');
 $fecha = date("d/m/Y H:i:s");
 
-$ar = fopen("db.txt", "w") or die("Problemas en la creacion");
+$ar = fopen("db.txt", "a") or die("Problemas en la creacion");
 
 fputs($ar, "-------------------------------------------------------- \n");
 fputs($ar, "\n");
@@ -15,6 +17,8 @@ fputs($ar, "-------------------------------------------------------- \n \n");
 
 fputs($ar, "Cliente: $nombreCliente\n");
 fputs($ar, "Dirección: $direccionCliente\n");
+fputs($ar, "Teléfono: $telefono\n");
+fputs($ar, "Tipo de pago: $pago\n");
 
 fputs($ar, "Fecha del pedido: $fecha\n \n");
 fputs($ar, "-------------------------------------------------------- \n \n");
@@ -45,7 +49,7 @@ fputs($ar, "\n");
 fputs($ar, "-------------------------------------------------------- \n \n");
 fputs($ar, "Total: $ $total \n");
 fputs($ar, "\n");
-fputs($ar, "-------------------------------------------------------- ");
+fputs($ar, "-------------------------------------------------------- \n \n");
 fclose($ar);
 ?>
 
@@ -67,6 +71,8 @@ fclose($ar);
         <p class="text-center text-gray-600 mb-4">Resumen del pedido</p>
         <p class="text-gray-600 py-2"><b>Cliente:</b> <?= $nombreCliente ?></p>
         <p class="text-gray-600 py-2"><b>Dirección:</b> <?= $direccionCliente ?></p>
+        <p class="text-gray-600 py-2"><b>Teléfono:</b> <?= $telefono ?></p>
+        <p class="text-gray-600 py-2"><b>Tipo de pago:</b> <?= $pago ?></p>
         <p class="text-gray-600 mb-2">
             <strong>Fecha:</strong> <?= $fecha ?>
         </p>

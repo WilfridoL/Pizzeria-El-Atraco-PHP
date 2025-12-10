@@ -18,26 +18,35 @@
             🍕 Pizzería El Atraco
         </h2>
 
-           <form method="post" action="main.php" class="space-y-6">
+        <form method="post" action="main.php" class="space-y-6">
 
             <div>
                 <label class="block text-lg font-semibold mb-1">Nombres del cliente</label>
-                <input 
-                    type="text" 
-                    name="nombre_cliente" 
-                    required
+                <input type="text" name="nombre_cliente" required
                     class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500"
                     placeholder="Ej: Juan Pérez">
             </div>
 
             <div>
                 <label class="block text-lg font-semibold mb-1">Dirección</label>
-                <input 
-                    type="text" 
-                    name="direccion_cliente" 
-                    required
+                <input type="text" name="direccion_cliente" required
                     class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500"
                     placeholder="Ej: Calle 12 # 8-32">
+            </div>
+            <div>
+                <label class="block text-lg font-semibold mb-1">Teléfono</label>
+                <input type="number" name="telefono_cliente" required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500"
+                    placeholder="Ej: 3005488302">
+            </div>
+            <div>
+                <label class="block text-lg font-semibold mb-1">Tipo de pago</label>
+
+                <select name="pago" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500" required>
+                    <option value="" disabled selected>Seleccionar tipo pago</option>
+                    <option value="Tarjeta">Tarjeta</option>
+                    <option value="Efectivo">Efectivo</option>
+                </select>
             </div>
             <div>
                 <label class="block text-lg font-semibold mb-1">Pedido</label>
@@ -46,31 +55,24 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-red-50 rounded-xl shadow">
                     <div class="flex flex-col">
                         <label class="font-semibold mb-1">Tipo de pizza</label>
-                        <select name="arr[]" class="select p-2 rounded-lg border border-red-300 focus:ring-red-500" required>
+                        <select name="arr[]" class="select p-2 rounded-lg border border-red-300 focus:ring-red-500"
+                            required>
                             <option value="" disabled selected>Seleccionar tipo pizza</option>
                         </select>
                     </div>
 
                     <div class="flex flex-col">
                         <label class="font-semibold mb-1">Cantidad</label>
-                        <input 
-                        type="number" 
-                        name="cantidad[]" 
-                        class="p-2 rounded-lg border border-red-300 focus:ring-red-500" 
-                        required>
+                        <input type="number" name="cantidad[]"
+                            class="p-2 rounded-lg border border-red-300 focus:ring-red-500" required>
                     </div>
                 </div>
 
             </div>
-            <button 
-                type="button" 
-                id="btn"
-                class="px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow">
+            <button type="button" id="btn" class="px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow">
                 Agregar más pizzas
             </button>
-            <input 
-                type="submit" 
-                value="Confirmar pedido"
+            <input type="submit" value="Confirmar pedido"
                 class="w-full py-3 bg-red-600 text-white font-bold text-lg rounded-lg shadow cursor-pointer hover:bg-red-700">
         </form>
     </div>
