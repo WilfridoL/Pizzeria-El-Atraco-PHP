@@ -18,18 +18,24 @@
             🍕 Pizzería El Atraco
         </h2>
 
-        <form id="pedidoForm" class="space-y-6">
+           <form method="post" action="main.php" class="space-y-6">
 
             <div>
                 <label class="block text-lg font-semibold mb-1">Nombres del cliente</label>
-                <input type="text" name="nombre_cliente" required
+                <input 
+                    type="text" 
+                    name="nombre_cliente" 
+                    required
                     class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500"
                     placeholder="Ej: Juan Pérez">
             </div>
 
             <div>
                 <label class="block text-lg font-semibold mb-1">Dirección</label>
-                <input type="text" name="direccion_cliente" required
+                <input 
+                    type="text" 
+                    name="direccion_cliente" 
+                    required
                     class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500"
                     placeholder="Ej: Calle 12 # 8-32">
             </div>
@@ -40,70 +46,36 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-red-50 rounded-xl shadow">
                     <div class="flex flex-col">
                         <label class="font-semibold mb-1">Tipo de pizza</label>
-                        <select name="arr[]" class="select p-2 rounded-lg border border-red-300 focus:ring-red-500"
-                            required>
+                        <select name="arr[]" class="select p-2 rounded-lg border border-red-300 focus:ring-red-500" required>
                             <option value="" disabled selected>Seleccionar tipo pizza</option>
                         </select>
                     </div>
 
                     <div class="flex flex-col">
                         <label class="font-semibold mb-1">Cantidad</label>
-                        <input type="number" name="cantidad[]"
-                            class="p-2 rounded-lg border border-red-300 focus:ring-red-500" required>
+                        <input 
+                        type="number" 
+                        name="cantidad[]" 
+                        class="p-2 rounded-lg border border-red-300 focus:ring-red-500" 
+                        required>
                     </div>
                 </div>
 
             </div>
-            <button type="button" id="btn" class="px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow">
+            <button 
+                type="button" 
+                id="btn"
+                class="px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow">
                 Agregar más pizzas
             </button>
-            <button type="submit"
+            <input 
+                type="submit" 
+                value="Confirmar pedido"
                 class="w-full py-3 bg-red-600 text-white font-bold text-lg rounded-lg shadow cursor-pointer hover:bg-red-700">
-                Confirmar pedido
-            </button>
         </form>
     </div>
 
     <script src="./main.js"></script>
-    <script>
-        document.getElementById('pedidoForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const nombre = e.target.nombre_cliente.value;
-            const direccion = e.target.direccion_cliente.value;
-
-            const arr = [...document.querySelectorAll('select[name="arr[]"]')].map(
-                select => select.value
-            );
-            const cantidad = [...document.querySelectorAll('input[name="cantidad[]"]')].map(
-                input => parseInt(input.value)
-            );
-
-            const data = {
-                nombre_cliente: nombre,
-                direccion_cliente: direccion,
-                arr,
-                cantidad
-            };
-
-            try {
-                const res = await fetch('/api/index.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                const html = await res.text();
-
-                // Reemplaza el body completo con la factura recibida (o haz redireccionamiento si quieres)
-                document.body.innerHTML = html;
-
-            } catch (err) {
-                alert('Error enviando el pedido.');
-                console.error(err);
-            }
-        });
-    </script>
 </body>
 
 </html>

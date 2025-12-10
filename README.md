@@ -8,6 +8,7 @@ A continuación se explica cómo instalar dependencias y ejecutar Tailwind en mo
 ## 🚀 Requisitos
 - Node.js instalado (versión 14 o superior)
 - NPM incluido con Node.js
+- Solo funciona en local
 
 ---
 
@@ -19,4 +20,6 @@ A continuación se explica cómo instalar dependencias y ejecutar Tailwind en mo
 2 Compilar Tailwind
    ```bash
     npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+
+
 
