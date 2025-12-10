@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria</title>
+
+    <link href="./src/output.css" rel="stylesheet">
+</head>
+
+<body
+    class="min-h-screen bg-[url('https://cdn.pixabay.com/photo/2020/03/25/21/05/pizza-4968645_1280.jpg')] bg-cover bg-center bg-no-repeat flex items-center justify-center p-4">
+
+    <div class="w-full max-w-xl bg-white backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-xl">
+
+        <h2 class="text-3xl font-bold text-center text-red-600 mb-6 drop-shadow">
+            🍕 Pizzería El Atraco
+        </h2>
+
+           <form method="post" action="main.php" class="space-y-6">
+
+            <div>
+                <label class="block text-lg font-semibold mb-1">Nombres del cliente</label>
+                <input 
+                    type="text" 
+                    name="nombre_cliente" 
+                    required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500"
+                    placeholder="Ej: Juan Pérez">
+            </div>
+
+            <div>
+                <label class="block text-lg font-semibold mb-1">Dirección</label>
+                <input 
+                    type="text" 
+                    name="direccion_cliente" 
+                    required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500"
+                    placeholder="Ej: Calle 12 # 8-32">
+            </div>
+            <div>
+                <label class="block text-lg font-semibold mb-1">Pedido</label>
+            </div>
+            <div class="pizzas space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-red-50 rounded-xl shadow">
+                    <div class="flex flex-col">
+                        <label class="font-semibold mb-1">Tipo de pizza</label>
+                        <select name="arr[]" class="select p-2 rounded-lg border border-red-300 focus:ring-red-500" required>
+                            <option value="" disabled selected>Seleccionar tipo pizza</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="font-semibold mb-1">Cantidad</label>
+                        <input 
+                        type="number" 
+                        name="cantidad[]" 
+                        class="p-2 rounded-lg border border-red-300 focus:ring-red-500" 
+                        required>
+                    </div>
+                </div>
+
+            </div>
+            <button 
+                type="button" 
+                id="btn"
+                class="px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow">
+                Agregar más pizzas
+            </button>
+            <input 
+                type="submit" 
+                value="Confirmar pedido"
+                class="w-full py-3 bg-red-600 text-white font-bold text-lg rounded-lg shadow cursor-pointer hover:bg-red-700">
+        </form>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
